@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+
+import pexpect, time, sys
+
+
+process = pexpect.spawn(sys.argv[1], timeout = 1000000, encoding='utf-8')
+process.logfile = sys.stdout
+
+while True:
+	idx = process.expect(["area:", "zone:", "More", pexpect.EOF])
+	if idx == 0:
+		time.sleep(0.1)
+		#print('send')
+		process.sendline("Asia" )
+	elif idx == 1:
+		time.sleep(0.1)
+		#print('send')
+		process.sendline("Shanghai" )
+	elif idx == 2:
+		process.sendline("")
+	else:
+		break
+ 
