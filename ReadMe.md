@@ -4,6 +4,13 @@
 sudo docker build -t "simplescc/vision:tf2_gpu_py3_jupyter_cv4_ffmpeg" .
 ```
 
+或
+
+```
+export TF_TAG=<<tensorflow镜像的TAG>>
+sudo docker build --build-arg TF_TAG=${TF_TAG} -t "simplescc/vision:${TF_TAG}_cv4_ffmpeg" .
+```
+
 # 运行命令
 
 ```
@@ -19,5 +26,3 @@ python3.6
 jupyter
 
 opencv 4.1.1 with ffmpeg
-
-
