@@ -1,6 +1,7 @@
 # 构建环境
+ARG TF_TAG=2.0.0rc0-gpu-py3-jupyter
 
-FROM tensorflow/tensorflow:2.0.0rc0-gpu-py3-jupyter AS Builder
+FROM tensorflow/tensorflow:$TF_TAG AS Builder
 
 MAINTAINER Shi Cancan <simple_scc@163.com>
 
@@ -53,7 +54,7 @@ RUN ls -1R --color=never /usr/local/lib/*.so /usr/local/lib/*.so.*  /usr/local/l
 
 # 运行环境
 
-FROM tensorflow/tensorflow:2.0.0rc0-gpu-py3-jupyter
+FROM tensorflow/tensorflow:$TF_TAG
 
 WORKDIR /root
 
